@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const {
   STRIPE_PUBLIC_KEY,
-  HOST,
+  // HOST,
 } = process.env;
 
 const nextConfig = {
@@ -18,7 +18,7 @@ const nextConfig = {
   },
   env: {
     STRIPE_PUBLIC_KEY,
-    HOST,
+    // HOST,
   },
 };
 

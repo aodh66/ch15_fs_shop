@@ -14,7 +14,7 @@ import Heading from "@/components/Heading";
 import QueryBoundaries from "@/components/QueryBoundaries";
 import CheckoutSummary from "@/components/CheckoutSummary";
 import StripeButton from "@/components/StripeButton";
-import backgroundImg from "@/images/mountain_color.jpg";
+import backgroundImg from "@/images/mountain_color.webp";
 
 export default function BasketPage({ basket }) {
   const mutation = useRemoveFromBasket();

@@ -9,7 +9,7 @@ import {
 import Layout from '@/components/Layout'
 import Heading from '@/components/Heading';
 import { AllPosts, SinglePost } from '@/lib/hygraph/queries';
-import backgroundImg from "@/images/mountain_bright.jpg";
+import backgroundImg from "@/images/mountain_bright.webp";
 
 export default function BlogPost({ ssd={} }) {
     const {

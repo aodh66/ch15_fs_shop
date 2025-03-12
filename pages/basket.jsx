@@ -13,7 +13,7 @@ import Heading from "@/components/Heading";
 import QueryBoundaries from "@/components/QueryBoundaries";
 import BasketList from "@/components/BasketList";
 import BasketTotal from "@/components/BasketTotal";
-import backgroundImg from "@/images/mountain_color.jpg";
+import backgroundImg from "@/images/mountain_color.webp";
 
 export default function BasketPage({ basket }) {
   const mutation = useRemoveFromBasket();

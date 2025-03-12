@@ -7,7 +7,7 @@ import {
 } from "@/lib/api-functions/server/products/queries";
 import Layout from "@/components/Layout";
 import Product from "@/components/Product";
-import backgroundImg from "@/images/mountain_med.jpg";
+import backgroundImg from "@/images/mountain_med.webp";
 
 export default function SingleProduct({ ssd = {} }) {    
   return (

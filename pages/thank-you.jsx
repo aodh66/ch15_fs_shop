@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import Heading from "@/components/Heading";
 import Paragraph from "@/components/Paragraph";
-import backgroundImg from "@/images/mountain_color.jpg";
+import backgroundImg from "@/images/mountain_color.webp";
 
 export default function ThankYouPage() {
   const router = useRouter();

@@ -6,7 +6,7 @@ import ProductList from "@/components/ProductList";
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
 import { fetchProducts } from "@/lib/api-functions/server/products/queries";
 import { STORAGE_KEY } from "@/lib/tq/products/settings";
-import backgroundImg from "@/images/mountain_med.jpg";
+import backgroundImg from "@/images/mountain_med.webp";
 
 export default function Home() {
   return (

@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import Heading from '@/components/Heading';
 import ContactForm from '@/components/forms/ContactForm';
 import { sendEmail } from '@/lib/api-functions/client/';
-import backgroundImg from "@/images/mountain_med.jpg";
+import backgroundImg from "@/images/mountain_med.webp";
   
 export default function Contact() {
   return (

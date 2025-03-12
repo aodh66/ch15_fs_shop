@@ -5,7 +5,7 @@ import Heading from '@/components/Heading';
 import QueryBoundaries from "@/components/QueryBoundaries";
 import UserDisplay from "@/components/UserDisplay";
 import Layout from '@/components/Layout';
-import backgroundImg from "@/images/mountain_dark.jpg";
+import backgroundImg from "@/images/mountain_dark.webp";
 
 export default function ProfilePage({ ssd, sess }) {
 

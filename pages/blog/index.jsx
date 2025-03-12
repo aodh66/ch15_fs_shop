@@ -12,7 +12,7 @@ import {
 import Layout from '@/components/Layout'
 import Heading from '@/components/Heading';
 import { AllPosts } from '@/lib/hygraph/queries';
-import backgroundImg from "@/images/mountain_color.jpg";
+import backgroundImg from "@/images/mountain_color.webp";
 
 export default function Blog({ ssd=[] }) {
     // console.log("ssd", ssd);
