@@ -24,11 +24,16 @@ const ProductList = (
       component="ol"
       sx={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(400px,1fr))",
+        gridTemplateColumns: "repeat(auto-fill, minmax(25vw,90vw))",
+        // gridColumn:  'span 2'
+        // {xs: 'span 1', sm: 'span 2', md: 'span 3'},
+        // maxWidth: "90vw",
       }}
     >
       {products.map((product) => (
-        <ListItem key={product._id} component="li">
+        <ListItem key={product._id} component="li"
+        //  sx={{ width: "95vw", justifySelf: "center" }}
+         >
           <Product
             product={product}
             deleteHandler={deleteHandler}

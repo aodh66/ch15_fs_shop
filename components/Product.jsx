@@ -1,3 +1,5 @@
+// import {Image} from 'react-native';
+// import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import { dinero, toDecimal } from "dinero.js";
@@ -34,7 +36,19 @@ const ProductDisplay = ({
   return (
     <Card sx={{ width: "100%", backgroundColor: "hsla(90, 0%, 0%, 0.5)" }}>
       <CardMedia sx={{ display: "grid", placeItems: "center" }}>
-        <Image alt={title} src={image} width="500" height="500" />
+        <Image 
+        alt={title} src={image} 
+        sx={{ width: "100%" }} 
+        width="500" height="500" 
+        // fill="true"
+        // sizes="(max-width: 768px) 100vw, 33vw"
+        // priority="true"
+        layout="responsive"
+
+        // style= {{width :"100%"}}
+        // source={image}
+        // alt={title}
+        />
       </CardMedia>
       <CardContent>
         <Heading component={`h${headingLevel}`} sx={{ textAlign: "center", color: "white" }}>
