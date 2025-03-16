@@ -5,12 +5,16 @@ import Layout from "@/components/Layout";
 import Heading from "@/components/Heading";
 import Paragraph from "@/components/Paragraph";
 import backgroundImg from "@/images/mountain_color.webp";
+import { useTheme } from "@mui/material/styles";
 
 export default function ThankYouPage() {
   const router = useRouter();
   const {
     query: { receiptURL },
   } = router;
+  const theme = useTheme();
+  const buttonColor = theme.palette.secondary.main;
+  const textShadow = theme.textShadow.filter;
   return (
     <div style={{
       backgroundImage: `url(${backgroundImg.src})`,
@@ -26,8 +30,8 @@ export default function ThankYouPage() {
       </Head>
       <Layout>
         <Heading component="h2" sx={{ color: "white" }}>Thank you for your order at the Eclectic Shop!</Heading>
-        <Paragraph sx={{ color: "white" }}>
-          You can view a copy of your receipt <a href={receiptURL} target="_blank" >here</a>
+        <Paragraph sx={{ color: "white", filter: `${textShadow}`, padding: "1em", fontSize: "1.5rem" }}>
+          You can view a copy of your receipt <a href={receiptURL} target="_blank" style={{ color: `${buttonColor}` }} >here</a>
         </Paragraph>
       </Layout>
     </div>

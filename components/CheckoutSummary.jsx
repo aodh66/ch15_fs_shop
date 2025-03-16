@@ -15,6 +15,7 @@ import {
 } from "@/components/mui";
 import { useUserBasket } from "@/lib/tq/baskets/queries";
 import { formatPrice } from "@/lib/utils/formatters";
+import { useTheme } from "@mui/material/styles";
 
 const CheckoutSummary = () => {
   const { data: basket } = useUserBasket();
@@ -22,14 +23,16 @@ const CheckoutSummary = () => {
     console.log('basketcalc', total, item);
     return add(total, dinero({ amount: item.price, currency: GBP }));
   }, dinero({ amount: 0, currency: GBP }));
+  const theme = useTheme();
+  const textShadow = theme.textShadow.filter;
 
   return (
     <TableContainer component={Paper} sx={{ backgroundColor: "hsla(90, 0%, 0%, 0.5)" }}>
       <Table sx={{ minWidth: 650 }} aria-label="Order Details">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ color: "white" }}>Name</TableCell>
-            <TableCell sx={{ color: "white" }}>Price</TableCell>
+            <TableCell sx={{ color: "white", filter: `${textShadow}` }}>Name</TableCell>
+            <TableCell sx={{ color: "white", filter: `${textShadow}` }}>Price</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -38,10 +41,10 @@ const CheckoutSummary = () => {
               key={nanoid()}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row" sx={{ color: "white" }}>
+              <TableCell component="th" scope="row" sx={{ color: "white", filter: `${textShadow}` }}>
                 {title}
               </TableCell>
-              <TableCell align="right" sx={{ color: "white" }}>
+              <TableCell align="right" sx={{ color: "white", filter: `${textShadow}` }}>
                 {formatPrice(
                   toDecimal(dinero({ amount: price, currency: GBP }))
                 )}
@@ -52,10 +55,10 @@ const CheckoutSummary = () => {
         <TableFooter>
           <TableRow>
             <TableCell align="right" component="th" scope="row">
-              <Typography sx={{ color: "white" }}>Total</Typography>
+              <Typography sx={{ color: "white", filter: `${textShadow}` }}>Total</Typography>
             </TableCell>
             <TableCell>
-              <Typography sx={{ color: "white" }}>{formatPrice(toDecimal(basketTotal))}</Typography>
+              <Typography sx={{ color: "white", filter: `${textShadow}` }}>{formatPrice(toDecimal(basketTotal))}</Typography>
             </TableCell>
           </TableRow>
         </TableFooter>

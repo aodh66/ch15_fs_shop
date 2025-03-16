@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from "next/link";
+import { useTheme } from "@mui/material/styles";
 
 import { getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Layout from '@/components/Layout';
@@ -18,6 +19,8 @@ import { checkPermissions } from "@/lib/api-functions/server/utils";
 import settings from "@/lib/api-functions/server/permissions";
 
 export default function AdminProductList({ user }) {
+  const theme = useTheme();
+  const buttonColor = theme.palette.secondary.main;
   const removeMutation = useDelete();
 
   const canAdd = checkPermissions(
@@ -56,6 +59,7 @@ export default function AdminProductList({ user }) {
             variant="contained"
             component={Link}
             href={`/admin/products/add`}
+          sx={{ color: `${buttonColor}` }}
           >
             Add Product
           </Button>

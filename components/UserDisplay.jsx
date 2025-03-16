@@ -12,17 +12,32 @@ const UserDisplay = ({ user }) => {
 
   return (
     <>
-      <Card sx={{ backgroundColor: "hsla(90, 0%, 0%, 0.5)", color: "white"}}>
-        <CardMedia sx={{ display: "grid", placeContent: "center" }}>
+      <Card
+        sx={{
+          backgroundColor: "hsla(90, 0%, 0%, 0.5)",
+          color: "white",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            backdropFilter: "blur(10px)",
+            position: "absolute",
+            minWidth: "100%",
+            minHeight: "100%",
+            zIndex: 0,
+          }}
+        />
+        <CardMedia sx={{ display: "grid", placeContent: "center", zIndex: 1 }}>
           <Image
             alt={nickname}
             src={picture}
             width="200"
             height="200"
-            style={{ borderRadius: "50%", marginTop: "2em"}}
+            style={{ borderRadius: "50%", marginTop: "2em", zIndex: 1 }}
           />
         </CardMedia>
-        <CardContent>
+        <CardContent sx={{ zIndex: 1 }}>
           <List
             component="dl"
             sx={{
@@ -52,11 +67,32 @@ const UserDisplay = ({ user }) => {
           </List>
         </CardContent>
       </Card>
-      <hr />
-      <Card sx={{ width: "100%", backgroundColor: "hsla(90, 0%, 0%, 0.5)", color: "white", padding: "1em"}}>
 
-      <Typography component="dd" sx={{ fontWeight: "bold" }}>Your Data</Typography>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+      <hr />
+
+      <Card
+        sx={{
+          width: "100%",
+          backgroundColor: "hsla(90, 0%, 0%, 0.5)",
+          color: "white",
+          padding: "1em",
+          // zIndex: 1,
+          position: "relative",
+        }}
+      >
+        {/* <div
+          style={{
+            backdropFilter: "blur(10px)",
+            position: "absolute",
+            minWidth: "100%",
+            minHeight: "100%",
+            zIndex: 0,
+          }}
+        /> */}
+        <Typography component="dd" sx={{ fontWeight: "bold", zIndex: 1 }}>
+          Your Data
+        </Typography>
+        <pre style={{ zIndex: 1 }}>{JSON.stringify(user, null, 2)}</pre>
       </Card>
     </>
   );

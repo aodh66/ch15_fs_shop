@@ -5,10 +5,13 @@ import StripeCheckout from "react-stripe-checkout";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useUserBasket } from "@/lib/tq/baskets/queries";
 import { Button } from "@/components/mui";
+import { useTheme } from "@mui/material/styles";
 
 const StripeButton = () => {
   const { user, isLoading, error } = useUser();
   const { data: basket } = useUserBasket();
+  const theme = useTheme();
+  const buttonColor = theme.palette.secondary.main;
   if(isLoading) return null;
   console.log('start stripebutton, final error', user?.email, isLoading, error);
   
@@ -59,7 +62,11 @@ const StripeButton = () => {
       zipCode={false}
       token={onToken}
     >
-      <Button variant="contained" color="secondary">Pay with Stripe</Button>
+      <Button 
+      variant="contained" 
+      // color="secondary"
+          sx={{ color: `${buttonColor}` }}
+      >Pay with Stripe</Button>
     </StripeCheckout>
   );
 };

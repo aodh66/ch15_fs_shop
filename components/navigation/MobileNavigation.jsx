@@ -10,8 +10,8 @@ import {
   Box,
   Typography,
 } from "@/components/mui";
-
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useTheme } from "@mui/material/styles";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 import ShoppingCartDisplay from "@/components/BasketDisplay";
 
@@ -21,7 +21,12 @@ function MobileNavigation({
     console.log("no handleDrawerToggle function provided"),
   drawerWidth = 240,
 }) {
+  const theme = useTheme();
   const { user } = useUser();
+  const lightTextColor = theme.palette.common.white;
+  const buttonColor = theme.palette.secondary.main;
+  const backGroundColor = theme.palette.primary.main;
+  const blur = theme.backdropFilter.blur;
   const itemLinkStyles = {
     display: "block",
     textDecoration: "none",
@@ -39,11 +44,25 @@ function MobileNavigation({
         sx={{
           display: { xs: "block", sm: "none" },
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+          backgroundColor: `${backGroundColor}`,
+          position: "relative",
         }}
       >
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+        <div
+          style={{
+            backdropFilter: "blur(10px)",
+            position: "absolute",
+            minWidth: "100%",
+            minHeight: "100%",
+            zIndex: 0,
+          }}
+        />
+        <Box
+          onClick={handleDrawerToggle}
+          sx={{ textAlign: "center", zIndex: 1 }}
+        >
           <Typography variant="h6" sx={{ my: 2 }}>
-          Eclectic Shop {user && <ShoppingCartDisplay user={user} />}
+            Eclectic Shop {user && <ShoppingCartDisplay user={user} />}
           </Typography>
           <Divider />
           <List>

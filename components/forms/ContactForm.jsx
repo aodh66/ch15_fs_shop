@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TextField, Button } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const schema = yup
   .object()
@@ -20,6 +21,11 @@ const defaults = {
 };
 
 export default function ContactForm({ submitHandler }) {
+  const theme = useTheme();
+  const lightTextColor = theme.palette.common.white;
+  const backGroundColor = theme.palette.primary.main;
+  const buttonColor = theme.palette.secondary.main;
+  const textShadow = theme.textShadow.filter;
 
   const {
     handleSubmit,
@@ -39,6 +45,10 @@ export default function ContactForm({ submitHandler }) {
 
   const formRowStyle = {
     marginBlockEnd: "1em",
+        backgroundColor: `${backGroundColor}`,
+        borderRadius: "4px",
+        // color: `${lightTextColor}`,
+          // backdropFilter: "blur(10px)",
   };
 
   let submitFn = (vals) => {
@@ -49,7 +59,7 @@ export default function ContactForm({ submitHandler }) {
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(submitFn)}>
+    <form onSubmit={handleSubmit(submitFn)} style={{ marginTop: "0.5em" }}>
       <div style={formRowStyle}>
         <Controller
           control={control}
@@ -57,12 +67,14 @@ export default function ContactForm({ submitHandler }) {
           defaultValue={""}
           render={({ field }) => (
             <TextField
-              type="text"
+            type="text"
               {...field}
               label="from"
               fullWidth
               error={!!errors.from}
               helperText={errors.from?.message}
+              inputProps={{ style: { color: `${lightTextColor}` } }}
+              InputLabelProps={{ style: { color: `${lightTextColor}`, filter: `${textShadow}` } }}
             />
           )}
         />
@@ -80,6 +92,8 @@ export default function ContactForm({ submitHandler }) {
               fullWidth
               error={!!errors.subject}
               helperText={errors.subject?.message}
+              inputProps={{ style: { color: `${lightTextColor}` } }}
+              InputLabelProps={{ style: { color: `${lightTextColor}`, filter: `${textShadow}` } }}
             />
           )}
         />
@@ -99,6 +113,8 @@ export default function ContactForm({ submitHandler }) {
               rows={4}
               error={!!errors.message}
               helperText={errors.message?.message}
+              inputProps={{ style: { color: `${lightTextColor}` } }}
+              InputLabelProps={{ style: { color: `${lightTextColor}`, filter: `${textShadow}` } }}
             />
           )}
         />
@@ -110,9 +126,8 @@ export default function ContactForm({ submitHandler }) {
           type="reset"
           onClick={() => reset()}
           variant="contained"
-          sx={{ mr: 2 }}
+          sx={{ mr: 2, color: `${buttonColor}` }}
           disabled={!isDirty}
-          color="secondary"
         >
           Reset
         </Button>
@@ -121,7 +136,7 @@ export default function ContactForm({ submitHandler }) {
           primary="true"
           variant="contained"
           disabled={isSubmitting || !isDirty || (isDirty && !isValid)}
-          color="secondary"
+          sx={{ color: `${buttonColor}` }}
         >
           Submit
         </Button>

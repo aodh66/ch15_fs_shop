@@ -23,10 +23,27 @@ function DesktopNavigation({
   const theme = useTheme();
   const { user } = useUser();
   const lightTextColor = theme.palette.common.white;
+  const buttonColor = theme.palette.secondary.main;
   return (
     <>
-      <AppBar component="nav" position="sticky" sx={{ mb: 2 }}>
-        <Toolbar>
+      <AppBar component="nav" position="sticky" 
+        sx={{ mb: 2, 
+          // opacity: 1, 
+          // backgroundColor: "hsla(90, 0%, 0%, 0.5)"  
+        // backdropFilter: "blur(10px)",
+        position: "relative",
+        }}
+      >
+      <div
+        style={{
+          backdropFilter: "blur(10px)",
+          position: "absolute",
+          minWidth: "100%",
+          minHeight: "100%",
+          zIndex: 0,
+        }}
+      />
+        <Toolbar sx={{ padding: "0px 10px"}} disableGutters={true} >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -43,7 +60,7 @@ function DesktopNavigation({
       alt="Site Logo"
     />
           <Typography
-            variant="h6"
+            variant="h5"
             component={Link}
             href={`/`}
             sx={{
@@ -51,6 +68,8 @@ function DesktopNavigation({
               display: { xs: "none", sm: "block" },
               textDecoration: "none",
               color: lightTextColor,
+              ml: 1,
+              // fontWeight: "semibold",
             }}
           >
             Eclectic Shop
@@ -59,7 +78,7 @@ function DesktopNavigation({
           {user && <ShoppingCartDisplay user={user} />}
             {user && user["https://ch15-fs-shop.vercel.app/admin"] && (
               <Button
-              sx={{ color: lightTextColor }}
+              sx={{ color: buttonColor }}
               component={Link}
               href="/admin"
             >
@@ -67,14 +86,14 @@ function DesktopNavigation({
             </Button>
             )}
             <Button
-              sx={{ color: lightTextColor }}
+              sx={{ color: buttonColor }}
               component={Link}
               href="/blog"
             >
               Blog
             </Button>
             <Button
-              sx={{ color: lightTextColor }}
+              sx={{ color: buttonColor }}
               component={Link}
               href="/contact"
             >
@@ -85,14 +104,14 @@ function DesktopNavigation({
                 <Button
                   href="/profile"
                   component={Link}
-                  sx={{ color: lightTextColor }}
+                  sx={{ color: buttonColor }}
                 >
                   Profile
                 </Button>
                 <Button
                   href="/api/auth/logout"
                   component={Link}
-                  sx={{ color: lightTextColor }}
+                  sx={{ color: buttonColor }}
                 >
                   Log Out
                 </Button>
@@ -101,7 +120,7 @@ function DesktopNavigation({
               <Button
                 href="/api/auth/login"
                 component={Link}
-                sx={{ color: lightTextColor }}
+                sx={{ color: buttonColor }}
               >
                 Log In
               </Button>
