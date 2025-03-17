@@ -48,11 +48,12 @@ const ProductList = (
         // justifyItems: "start",
         // {xs: 'span 1', sm: 'span 2', md: 'span 3'},
         // maxWidth: "90vw",
+
       }}
     >
       {products.map((product) => (
         <ListItem key={product._id} component="li"
-        //  sx={{ justifySelf: "start" }}
+        //  sx={{ padding: "1em" }}
          >
           <Product
             product={product}

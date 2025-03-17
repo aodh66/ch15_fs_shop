@@ -11,7 +11,7 @@ export default function Contact() {
       backgroundImage: `url(${backgroundImg.src})`,
       backgroundSize: "cover",
       backgroundAttachment: "fixed",
-      width: "100vw",
+      width: "100%",
       minHeight: "100vh"}}>
       <Head>
         <title>Contact Eclectic</title>

@@ -22,7 +22,7 @@ export default function Blog({ ssd = [] }) {
         backgroundImage: `url(${backgroundImg.src})`,
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
-        width: "100vw",
+        width: "100%",
         minHeight: "100vh",
       }}
     >
