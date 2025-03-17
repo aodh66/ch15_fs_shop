@@ -13,8 +13,11 @@ import Layout from "@/components/Layout";
 import Heading from "@/components/Heading";
 import { AllPosts } from "@/lib/hygraph/queries";
 import backgroundImg from "@/images/mountain_color.webp";
+import { useTheme } from "@mui/material/styles";
 
 export default function Blog({ ssd = [] }) {
+  const theme = useTheme();
+  const buttonColor = theme.palette.secondary.main;
   // console.log("ssd", ssd);
   return (
     <div
@@ -38,47 +41,58 @@ export default function Blog({ ssd = [] }) {
         </Heading>
         <List component={"ol"} sx={{ listStyle: "none" }}>
           {ssd.map(({ id, title, slug, heroImage: { url } }) => (
-            <ListItem key={id}>
-              <div
-                style={{
-                  backdropFilter: "blur(10px)",
-                  position: "absolute",
-                  minWidth: "100%",
-                  minHeight: "100%",
-                  zIndex: 0,
-                }}
-              />
+            <ListItem key={id} sx={{ position: "relative" }}>
               <Card
                 component={"article"}
                 sx={{
                   width: "100%",
                   backgroundColor: "hsla(90, 0%, 0%, 0.5)",
-                  zIndex: 1,
-                  display: "flex",
+                  // zIndex: 1,
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
                   borderRadius: "4px",
                   overflow: "hidden",
                   justifyContent: "space-between",
+                  position: "relative",
                 }}
               >
+                <div
+                  style={{
+                    backdropFilter: "blur(10px)",
+                    position: "absolute",
+                    minWidth: "100%",
+                    minHeight: "100%",
+                    zIndex: 0,
+                  }}
+                />
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "start",
                     width: "100%",
-                    padding: "1em",
+                    padding: "0.5em",
+                    zIndex: 1,
+                    minWidth: "6em",
                   }}
                 >
-                  <CardContent>
-                    <Heading component="h3" color="white">
+                  <CardContent sx={{ padding: "8px" }}>
+                    <Heading component="h4" color="white" sx={{ zIndex: 1 }}>
                       {title}
                     </Heading>
                   </CardContent>
                   <CardActions>
-                    <Link href={`/blog/${slug}`}>Read more...</Link>
+                    <Link
+                      href={`/blog/${slug}`}
+                      style={{ color: `${buttonColor}`, fontSize: "0.8rem" }}
+                    >
+                      Read more...
+                    </Link>
                   </CardActions>
                 </div>
-                <CardMedia sx={{ display: "grid", placeContent: "center" }}>
+                <CardMedia
+                  sx={{ display: "grid", placeContent: "center", zIndex: 1, justifySelf: "end" }}
+                >
                   <Image alt={title} src={url} width="300" height="200" />
                 </CardMedia>
               </Card>

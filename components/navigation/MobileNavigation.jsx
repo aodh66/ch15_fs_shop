@@ -89,20 +89,20 @@ function MobileNavigation({
                 </ListItemButton>
               </Link>
             </ListItem>
-            {user && user["https://ch15-fs-shop.vercel.app/admin"] && (
+            {/* {user && user["https://ch15-fs-shop.vercel.app/admin"] && (
               <ListItem>
                 <Link href={"/admin"} passHref style={itemLinkStyles}>
-                  <ListItemButton sx={{ textAlign: "left", width: "100%" }}>
+                  <ListItemButton sx={{ textAlign: "left", width: "100%", color: `${buttonColor}` }}>
                     <ListItemText primary={"Admin"} />
                   </ListItemButton>
                 </Link>
               </ListItem>
-            )}
+            )} */}
             {user ? (
               <>
                 <ListItem>
                   <Link href={"/profile"} passHref style={itemLinkStyles}>
-                    <ListItemButton sx={{ textAlign: "left" }}>
+                    <ListItemButton sx={{ textAlign: "left", color: `${buttonColor}` }}>
                       <ListItemText primary={"Profile"} />
                     </ListItemButton>
                   </Link>
@@ -113,7 +113,7 @@ function MobileNavigation({
                     passHref
                     style={itemLinkStyles}
                   >
-                    <ListItemButton sx={{ textAlign: "left", width: "100%" }}>
+                    <ListItemButton sx={{ textAlign: "left", width: "100%", color: `${buttonColor}` }}>
                       <ListItemText primary={"Log Out"} />
                     </ListItemButton>
                   </Link>
