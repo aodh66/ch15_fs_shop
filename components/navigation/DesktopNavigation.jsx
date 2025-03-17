@@ -27,7 +27,7 @@ function DesktopNavigation({
   return (
     <>
       <AppBar component="nav" position="sticky" 
-        sx={{ mb: 2, 
+        sx={{ mb: 0, 
           // opacity: 1, 
           // backgroundColor: "hsla(90, 0%, 0%, 0.5)"  
         // backdropFilter: "blur(10px)",

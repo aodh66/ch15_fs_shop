@@ -46,6 +46,7 @@ function MobileNavigation({
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth,
             backgroundColor: `${backGroundColor}`,
             position: "relative",
+            marginBottom: "0px",
           },
         }}
       >
