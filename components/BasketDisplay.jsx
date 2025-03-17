@@ -20,7 +20,7 @@ const ShoppingCartDisplay = () => {
       <StyledBadge 
       badgeContent={basket?.items?.length} 
       color="primary">
-        <ShoppingCartIcon />
+        <ShoppingCartIcon color="secondary"/>
       </StyledBadge>
     </IconButton>
   );

@@ -31,7 +31,7 @@ const ProductList = (
   }
 ) => {
   const columns = useColumns();
-  console.log("columns", useColumns());
+  // console.log("columns", useColumns());
 
   const { user } = useUser();
   const mutation = useAddToBasket();
@@ -45,10 +45,6 @@ const ProductList = (
         display: "grid",
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gridColumn:  `${columns}`,
-        // justifyItems: "start",
-        // {xs: 'span 1', sm: 'span 2', md: 'span 3'},
-        // maxWidth: "90vw",
-
       }}
     >
       {products.map((product) => (

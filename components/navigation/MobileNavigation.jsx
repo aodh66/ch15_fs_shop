@@ -43,9 +43,10 @@ function MobileNavigation({
         }}
         sx={{
           display: { xs: "block", sm: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-          backgroundColor: `${backGroundColor}`,
-          position: "relative",
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth,
+            backgroundColor: `${backGroundColor}`,
+            position: "relative",
+          },
         }}
       >
         <div
@@ -61,28 +62,28 @@ function MobileNavigation({
           onClick={handleDrawerToggle}
           sx={{ textAlign: "center", zIndex: 1 }}
         >
-          <Typography variant="h6" sx={{ my: 2 }}>
+          <Typography variant="h6" sx={{ my: 2, color: `${lightTextColor}` }}>
             Eclectic Shop {user && <ShoppingCartDisplay user={user} />}
           </Typography>
           <Divider />
           <List>
             <ListItem>
               <Link href={"/"} passHref style={itemLinkStyles}>
-                <ListItemButton sx={{ textAlign: "left", width: "100%" }}>
+                <ListItemButton sx={{ textAlign: "left", width: "100%", color: `${buttonColor}` }}>
                   <ListItemText primary={"Shop"} />
                 </ListItemButton>
               </Link>
             </ListItem>
             <ListItem>
               <Link href={"/blog"} passHref style={itemLinkStyles}>
-                <ListItemButton sx={{ textAlign: "left", width: "100%" }}>
+                <ListItemButton sx={{ textAlign: "left", width: "100%", color: `${buttonColor}` }}>
                   <ListItemText primary={"Blog"} />
                 </ListItemButton>
               </Link>
             </ListItem>
             <ListItem>
               <Link href={"/contact"} passHref style={itemLinkStyles}>
-                <ListItemButton sx={{ textAlign: "left", width: "100%" }}>
+                <ListItemButton sx={{ textAlign: "left", width: "100%", color: `${buttonColor}` }}>
                   <ListItemText primary={"Contact"} />
                 </ListItemButton>
               </Link>

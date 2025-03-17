@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <Box sx={{ display: "flex", position: "relative" }}>
+    <Box sx={{ display: "flex", position: "relative"}}>
       <div
         style={{
           backdropFilter: "blur(10px)",

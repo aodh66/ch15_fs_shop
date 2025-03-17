@@ -49,7 +49,7 @@ function DesktopNavigation({
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, pl: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -76,7 +76,7 @@ function DesktopNavigation({
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
           {user && <ShoppingCartDisplay user={user} />}
-            {user && user["https://ch15-fs-shop.vercel.app/admin"] && (
+            {/* {user && user["https://ch15-fs-shop.vercel.app/admin"] && (
               <Button
               sx={{ color: buttonColor }}
               component={Link}
@@ -84,7 +84,7 @@ function DesktopNavigation({
             >
               Admin
             </Button>
-            )}
+            )} */}
             <Button
               sx={{ color: buttonColor }}
               component={Link}
